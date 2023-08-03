@@ -1,0 +1,241 @@
+<!-- Created by ★ Hemant ★ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE-Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculator</title>
+  <!-- Logo link -->
+  <link rel="icon" href="Logo.jpg" type="image/png">
+  <!-- Bootstrap icon link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+  <!-- Bootstrap Css link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <!-- Css link -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Menu Section-->
+  <div class="menu" onclick="menu()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+  <div id="up">
+    <div class="container" id="container">
+      <span style="
+            position: absolute;
+            top: -4px;
+            right: 4px;
+            font-size: 27px;
+            cursor: pointer;
+          " onclick="sx()">X</span>
+      <a onclick="calcu()">Calculator</a>
+      <a onclick="time()">Time</a>
+      <a onclick="temp()">Temperature</a>
+      <a href="https://github.com/Hemantk1234" target="_blank">Github</a>
+    </div>
+  </div>
+
+  <!-- The Calculator section-->
+  <article id="calculator">
+    <header>
+      <h1 class="title">Calculator</h1>
+    </header>
+    <div class="start">
+      <form name="calc">
+        <input class="display" name="display" placeholder="0" style="overflow: scroll" disabled />
+      </form>
+      <table>
+        <tr>
+          <td>
+            <div class="btn" id="clear" onclick="clr()">C</div>
+          </td>
+          <td>
+            <div class="btn" onclick="opr('/')">÷</div>
+          </td>
+          <td>
+            <div class="btn" onclick="opr('*')">x</div>
+          </td>
+          <td>
+            <div class="btn" onclick="back()">
+              <img id="img" alt="‹" src="https://www.dropbox.com/s/2jmv326a6rdvijq/Clear.png?raw=1" />
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="btn" onclick="ins('7')">7</div>
+          </td>
+          <td>
+            <div class="btn" onclick="ins('8')">8</div>
+          </td>
+          <td>
+            <div class="btn" onclick="ins('9')">9</div>
+          </td>
+          <td>
+            <div class="btn" onclick="ins('-')">-</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="btn" onclick="ins('4')">4</div>
+          </td>
+          <td>
+            <div class="btn" onclick="ins('5')">5</div>
+          </td>
+          <td>
+            <div class="btn" onclick="ins('6')">6</div>
+          </td>
+          <td>
+            <div class="btn" onclick="opr('+')">+</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="btn" onclick="ins('1')">1</div>
+          </td>
+          <td>
+            <div class="btn" onclick="ins('2')">2</div>
+          </td>
+          <td>
+            <div class="btn" onclick="ins('3')">3</div>
+          </td>
+          <td rowspan="2" class="equal">
+            <div id="equal" class="btn" onclick="equal()">=</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="btn" onclick="percent()">%</div>
+          </td>
+          <td>
+            <div class="btn" onclick="zero('0')">0</div>
+          </td>
+          <td>
+            <div class="btn" onclick="ins('.')">.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </article>
+
+  <!-- Time Section -->
+  <article id="time" style="display: none">
+    <div class="time">
+      <header>
+        <h1 class="title" style="display: flex; color: #fff; justify-content:space-around; text-align: center;">Time
+        </h1>
+      </header>
+      <br />
+      <div>
+        <input type="number" min="0" value="0" id="seconds" onchange="second(this.value)"
+          oninput="second(this.value)" />
+        <span class="label" style="color: #fff">Seconds</span>
+      </div>
+      <br />
+      <div>
+        <input type="number" min="0" value="0" id="minutes" onchange="minute(this.value)"
+          oninput="minute(this.value)" />
+        <span class="label" style="color: #fff">Minutes</span>
+      </div>
+      <br />
+      <div>
+        <input type="number" min="0" value="0" id="hours" onchange="hour(this.value)" oninput="hour(this.value)" />
+        <span class="label" style="color: #fff">Hours</span>
+      </div>
+      <br />
+      <div>
+        <input type="number" min="0" value="0" id="days" onchange="day(this.value)" oninput="day(this.value)" />
+        <span class="label" style="color: #fff">Days</span>
+      </div>
+      <br />
+      <div>
+        <input type="number" min="0" value="0" id="weeks" onchange="week(this.value)" oninput="week(this.value)" />
+        <span class="label" style="color: #fff">Weeks</span>
+      </div>
+      <br />
+      <div>
+        <input type="number" min="0" value="0" id="years" onchange="year(this.value)" oninput="year(this.value)" />
+        <span class="label" style="color: #fff">Years</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- Temperature Section -->
+  <article id="temperature" style="display: none">
+    <div class="temp">
+      <header>
+        <h1 class="title" style="display: flex; color: #fff; justify-content:space-around; text-align: center;">
+          Temperature</h1>
+      </header>
+      <br />
+      <div class="main">
+        <input type="number" value="0" id="celsius" onchange="celsius(this.value)" oninput="celsius(this.value)" />
+        <span class="label">Celsius</span>
+      </div>
+      <br />
+      <div>
+        <input type="number" value="32" id="fahrenhait" onchange="fahrenhait(this.value)"
+          oninput="fahrenhait(this.value)" />
+        <span class="label">Fahrenhait</span>
+      </div>
+      <br />
+      <div>
+        <input type="number" value="273.15" id="kelvin" onchange="kelvin(this.value)" oninput="kelvin(this.value)" />
+        <span class="label">Kelvin</span>
+      </div>
+    </div>
+  </article>
+
+  <!--Feedback-->
+  <div class="d-flex" style="position: relative; top: 40rem; opacity: 1; background-color:rgb(94, 94, 95) !important;">
+    <div class="p-2 text-white">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; How was
+      your experience? &nbsp; <i class="bi bi-hand-thumbs-up-fill" id="Pointer"></i> &nbsp; <i
+        class="bi bi-hand-thumbs-down-fill" id="Pointer"></i></div>
+    <div class="ms-auto p-2 text-white" id="Pointer">Contact Us &nbsp; <i class="bi bi-envelope-fill"></i>&nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-5" style="top: 39rem; position: relative;color: white;">
+
+
+
+    <div class="container">
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <p>Made with ❤ by HK</p>
+        <p>© 2023 Calculator, Inc. All Rights Reserved.</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-dark fab fa-twitter" target="_blank" href="https://twitter.com/HemantkEtc116"
+              style="text-decoration: none; width: auto; font-size:27px; background-color: white;border-radius: 3px;height: auto;"></a>
+          </li>
+          <li class="ms-3"><a class="link-dark fab fa-facebook-f" target="_blank"
+              href="https://www.facebook.com/hemant.kumbhalkar.581"
+              style="text-decoration: none; width: auto; font-size:27px; background-color: white;border-radius: 3px;height: auto;"></a>
+          </li>
+          <li class="ms-3"><a class="link-dark fab fa-linkedin" target="_blank"
+              href="https://www.linkedin.com/in/hemant-kumbhalkar-87393b235/"
+              style="text-decoration: none; width: auto; font-size:27px; background-color: white;border-radius: 3px;height: auto;"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Javascript -->
+  <script src="script.js"></script>
+</body>
+
+</html>
