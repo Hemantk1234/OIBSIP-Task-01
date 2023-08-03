@@ -38,7 +38,7 @@ It is built using:-
 ### 📲 Mobile / Tab Version
 
 <div align="center">
-    <img src="" width="400px"</img>
+    <img src="https://github.com/Hemantk1234/OIBSIP-Task-01/assets/125623888/690b0faf-807d-419f-8873-22bc63298c7d" width="400px"</img>
 </div>
 <br/>
 <hr/>
